@@ -1,0 +1,23 @@
+@DemoApi_HostAddress = http://localhost:5056
+
+### Get all people
+GET {{DemoApi_HostAddress}}/api/people/
+Accept: application/json
+
+###
+
+### Get a person by ID
+GET {{DemoApi_HostAddress}}/api/people/1
+Accept: application/json
+
+###
+
+### Create a new person
+POST {{DemoApi_HostAddress}}/api/people/
+Content-Type: application/json
+
+{
+  "id": 0,
+  "firstName": "Jane",
+  "lastName": "Doe"
+}
