@@ -16,7 +16,7 @@ services.AddSwaggerGen();
 
 services
     .AddSingleton<IDataAccess, DemoDataAccess>()
-    .AddMediatR((mediatRServiceConfig) => mediatRServiceConfig.RegisterServicesFromAssemblyContaining<DemoDataAccess>())
+    .AddMediatR(mediatRServiceConfig => mediatRServiceConfig.RegisterServicesFromAssemblyContaining<DemoDataAccess>())
     .AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>))
     .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 

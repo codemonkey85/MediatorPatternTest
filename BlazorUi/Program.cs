@@ -11,7 +11,7 @@ services
 
 services
     .AddSingleton<IDataAccess, DemoDataAccess>()
-    .AddMediatR((mediatRServiceConfig) => mediatRServiceConfig.RegisterServicesFromAssemblyContaining<DemoDataAccess>());
+    .AddMediatR(mediatRServiceConfig => mediatRServiceConfig.RegisterServicesFromAssemblyContaining<DemoDataAccess>());
 
 var app = builder.Build();
 
