@@ -1,3 +1,4 @@
+using System.Reflection;
 using BlazorUi.Components;
 using DemoLibrary.DataAccess;
 
@@ -9,9 +10,14 @@ services
     .AddRazorComponents()
     .AddInteractiveServerComponents();
 
+Assembly[] mediatRAssemblies =
+[
+    typeof(DemoDataAccess).Assembly
+];
+
 services
     .AddSingleton<IDataAccess, DemoDataAccess>()
-    .AddMediatR(mediatRServiceConfig => mediatRServiceConfig.RegisterServicesFromAssemblyContaining<DemoDataAccess>());
+    .AddMediatR(mediatRServiceConfig => mediatRServiceConfig.RegisterServicesFromAssemblies(mediatRAssemblies));
 
 var app = builder.Build();
 
